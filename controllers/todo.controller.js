@@ -11,6 +11,7 @@ export const getTodos = async (req, res) => {
 };
 
 export const createTodo = async (req, res) => {
+  console.log(req.body); // Verifica qué datos está recibiendo
   try {
     const newTodo = new Todo(req.body);
     await newTodo.save();
@@ -23,7 +24,7 @@ export const createTodo = async (req, res) => {
 export const updateTodo = async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ message: 'ID no válido' });
     }

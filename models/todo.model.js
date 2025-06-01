@@ -8,12 +8,16 @@ const todoSchema = new mongoose.Schema({
   },
   completed: {
     type: Boolean,
-    default: false
+    default: false,
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
+  description: {
+    type: String,
+    default: 'Sin descripción',
+  },
 });
 
 export const Todo = mongoose.model('Todo', todoSchema); 
